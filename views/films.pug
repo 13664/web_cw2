@@ -1,0 +1,24 @@
+extends layout.pug 
+
+block content
+  if deleted 
+    p.success Deleted
+
+  .container2 
+      h1 All films
+  ul.films
+   if films.length 
+      each film in films
+          .film-container 
+            p.film Title:  #{film.title} 
+            p.film Review:  #{film.description} 
+            p.film Rating:  #{film.rating}
+
+            .btns
+              a.update(href=`/${film.id}/update`) Update
+              a.delete(href=`/${film.id}/delete`) Delete
+   else 
+      p.film No any film review availble
+
+
+  
